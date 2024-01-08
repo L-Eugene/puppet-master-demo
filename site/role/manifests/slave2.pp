@@ -7,4 +7,6 @@ class role::slave2 {
     user_name => 'prod_user',
     password  => '$1$82O96PFM$8avkFBH/CitHmrE9rEtjb1'
   }
+
+  include mysql::server
 }
