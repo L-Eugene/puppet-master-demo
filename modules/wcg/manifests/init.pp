@@ -34,7 +34,16 @@ class wcg {
     ensure => running,
   }
 
-  exec { 'Open wcg port 8888':
-    command   => "/usr/bin/firewall-cmd --add-port=8888/tcp",
+  firewalld_port { 'Open port 8888 in the public zone':
+    ensure   => present,
+    zone     => public,
+    port     => 8888,
+    protocol => 'tcp',
+  }
+
+  firewalld_service { 'Allow HTTP from the external zone':
+      ensure  => 'present',
+      service => 'http',
+      zone    => 'public',
   }
 }
