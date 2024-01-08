@@ -1,3 +1,12 @@
+class dev_user {
+  user { 'demo_user':
+    ensure => present,
+    managehome => true,
+    groups => ['wheel'],
+    password => '$1$Gdi1eg83$lCTP35NrycMk.MO7WQ5Ut1',
+  }
+}
+
 node default{
   file { '/root/README':
     ensure => file,
@@ -10,6 +19,7 @@ node slave1.puppet {
   package {'screen':}
   package {'vim':}
 
+  include dev_user
 }
 
 node slave2.puppet {
