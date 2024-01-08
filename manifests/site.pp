@@ -21,11 +21,11 @@ node default{
 }
 
 node slave1.puppet {
+  include dev_user
+
   Package { ensure => 'installed' }
   package {'screen':}
   package {'vim':}
-
-  include dev_user
 }
 
 node slave2.puppet {
