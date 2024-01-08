@@ -1,4 +1,4 @@
-class profile::personal_file {
+class profile::personal::file {
   file { '/root/personal':
     ensure => file
   }

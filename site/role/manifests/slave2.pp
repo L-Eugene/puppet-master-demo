@@ -1,5 +1,5 @@
 class role::slave2 {
-  include profile::personal_file
+  include profile::personal::file
 
   notify { "Running os ${facts['os']['name']} version ${facts['os']['release']['full']}": }
 
