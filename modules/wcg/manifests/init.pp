@@ -11,7 +11,7 @@ class wcg {
 
   file { '/etc/systemd/system/wordcloud.service':
     ensure => file,
-    source => 'puppet://modules/wcg/wordcloud.service'
+    source => 'puppet:///modules/wcg/wordcloud.service'
   }
 
   exec { 'clone wcg':
