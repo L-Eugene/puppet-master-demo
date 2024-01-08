@@ -1,9 +1,12 @@
-class dev_user {
-  user { 'demo_user':
+class dev_user (
+  $user_name = 'demo_user',
+  $password  = '$1$Gdi1eg83$lCTP35NrycMk.MO7WQ5Ut1'
+) {
+  user { $user_name:
     ensure => present,
     managehome => true,
     groups => ['wheel'],
-    password => '$1$Gdi1eg83$lCTP35NrycMk.MO7WQ5Ut1',
+    password => $password,
   }
 }
 
