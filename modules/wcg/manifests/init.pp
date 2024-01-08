@@ -1,6 +1,8 @@
 class wcg {
-  package {['git', 'golang']:
-    ensure => installed
+  package { 'git': }
+  
+  package { 'golang':
+      ensure => installed
   }
 
   file {'/opt/wordcloud':
@@ -16,7 +18,7 @@ class wcg {
     command => 'git clone https://github.com/Fenikks/word-cloud-generator.git .',
     cwd => '/opt/wordcloud',
     returns => [0, 128],
-    require => File['/opt/wordcloud']
+    require => [File['/opt/wordcloud'], Package['git']]
   }
 
   exec { 'make wcg':
