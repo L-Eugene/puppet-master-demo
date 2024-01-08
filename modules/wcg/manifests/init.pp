@@ -15,7 +15,7 @@ class wcg {
   }
 
   exec { 'clone wcg':
-    command => 'git clone https://github.com/Fenikks/word-cloud-generator.git .',
+    command => '/usr/bin/git clone https://github.com/Fenikks/word-cloud-generator.git .',
     cwd => '/opt/wordcloud',
     returns => [0, 128],
     require => [File['/opt/wordcloud'], Package['git']]
